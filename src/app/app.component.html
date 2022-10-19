@@ -1,5 +1,5 @@
 <div class="container">
-	<top-menu (toggleMenuEvent)="toggleMenu($event)" class="top-menu"></top-menu>
+	<top-menu (toggleMenuEvent)="toggleMenu()" class="top-menu"></top-menu>
 	<google-map *ngIf="true"
 		width="100%"
 		height="{{mapHeight}}"
@@ -13,8 +13,6 @@
 			[label]="marker.label"
 			[title]="marker.title"
 			(mapClick)="openInfo(markerElem, marker.info)">
-<!--			[options]="marker.options"-->
-<!--			[icon]="marker.icon"-->
 		</map-marker>
 		<map-info-window>
 			<div class="company">{{infoContent['Company']}} ({{infoContent['What']}})</div>
@@ -23,32 +21,6 @@
 			<div><a href="{{infoContent['Website']}}" target="_blank">{{infoContent['Website']}}</a></div>
 		</map-info-window>
 	</google-map>
-	<!--		width="100%"-->
 </div>
 
 <side-menu *ngIf="showMenu" class="side-menu"></side-menu>
-
-<!--  [zoom]="zoom"-->
-
-<!--<iframe-->
-<!--	width="100%"-->
-<!--	height="100%"-->
-<!--	loading="lazy"-->
-<!--	allowfullscreen-->
-<!--	referrerpolicy="no-referrer-when-downgrade"-->
-<!--	src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCGJefioXwGa99gBZZQxW86W_1D2nc2ZKs-->
-<!--    &q=Thousand+Oaks+CA">-->
-<!--</iframe>-->
-
-<!--<div id="map"></div>-->
-
-<!--
- The `defer` attribute causes the callback to execute after the full HTML
- document has been parsed. For non-blocking uses, avoiding race conditions,
- and consistent behavior across browsers, consider loading using Promises
- with https://www.npmjs.com/package/@googlemaps/js-api-loader.
--->
-<!--    <script-->
-<!--      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"-->
-<!--      defer-->
-<!--    ></script>-->
