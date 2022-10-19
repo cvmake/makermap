@@ -1,0 +1,27 @@
+.container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.top-menu {
+    background-color: #eeeeee;
+}
+
+.side-menu {
+    position: absolute;
+    left: 2px;
+    top: 36px;
+    width: 150px;
+    height: 200px;
+    background-color: #eeeeee;
+    border: 1px solid #000000;
+}
+
+.company {
+    font-weight: bold;
+}
+
+.pb-1 {
+    padding-bottom: 0.5rem;
+}
