@@ -1,4 +1,18 @@
-<div class="about">
-	<a href="https://cvmake.org/2022/10/maker-map-a-building-a-map-of-places-around-the-neighborhood/" target="_blank">About This Map</a>
-	<p>More features coming soon!</p>
+<div class="menu">
+
+	<div class="section">
+		Data Filter
+	</div>
+
+	<div class="dropdown">
+		<button (click)="myFunction()" class="dropbtn">Cities: {{selectedFilters.City.selected}}</button>
+		<div id="myDropdown" class="dropdown-content">
+			<a (click)="selectCity('All')">All</a>
+			<a *ngFor="let city of filters.City.array" (click)="selectCity(city)">{{city}}</a>
+		</div>
+	</div>
+
+	<div class="about">
+		<a href="https://cvmake.org/2022/10/maker-map-a-building-a-map-of-places-around-the-neighborhood/" target="_blank">About This Map</a>
+	</div>
 </div>

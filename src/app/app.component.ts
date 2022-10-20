@@ -10,10 +10,10 @@ import { GoogleMap, MapInfoWindow } from "@angular/google-maps";
 export class AppComponent implements OnInit {
     @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
     @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
-    // @Input() menuEvent: Event;
 
     filterCategories = ['City', 'Mode', 'What'];
-    filters = [];
+    filters = {};
+    selectedFilters = {};
 
     showMenu = false;
     mapHeight = 500;
@@ -31,7 +31,8 @@ export class AppComponent implements OnInit {
         maxZoom: 20,
         minZoom: 8,
     }
-    markers: any = [];
+    allMarkers: any = [];
+    filteredMarkers: any = [];
     companies: any = [];
     infoContent = '';
 
@@ -53,12 +54,33 @@ export class AppComponent implements OnInit {
         this.showMenu = !this.showMenu;
     }
 
+    filterChange(event) {
+        this.selectedFilters[event.type].selected = event.value;
+        this.filteredMarkers = this.allMarkers.filter(this.updateFilteredMarkers.bind(this));
+    }
+
+    updateFilteredMarkers(item) {
+        let keep = true;
+        if (this.selectedFilters['City'].selected != 'All' && this.selectedFilters['City'].selected != item.info.City)
+            keep = false;
+        return keep;
+    }
+
     prepareFilters() {
         for (const index in this.filterCategories) {
             this.filters[this.filterCategories[index]] = {
                 array: [],
                 map: new Map()
             };
+            this.selectedFilters[this.filterCategories[index]] = {
+                selected: 'All'
+            }
+        }
+    }
+
+    updateFilterArrays() {
+        for (const index in this.filterCategories) {
+            this.filters[this.filterCategories[index]].array = Array.from(this.filters[this.filterCategories[index]].map.keys());
         }
     }
 
@@ -68,6 +90,7 @@ export class AppComponent implements OnInit {
                 this.companiesTsv = response;
                 this.convertCompaniesTSVintoJSON();
                 this.createMarkers();
+                this.updateFilterArrays();
             },
             (error) => {
                 console.error('companies error: ' + error.error);
@@ -103,7 +126,8 @@ export class AppComponent implements OnInit {
             }
         }
         if (markerList.length > 0) {
-            this.markers = markerList;
+            this.allMarkers = markerList;
+            this.filteredMarkers = [...markerList];
         }
     }
 

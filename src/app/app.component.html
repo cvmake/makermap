@@ -8,7 +8,7 @@
 		[zoom]="zoom">
 		<map-marker
 			#markerElem="mapMarker"
-			*ngFor="let marker of markers"
+			*ngFor="let marker of filteredMarkers"
 			[position]="marker.position"
 			[label]="marker.label"
 			[title]="marker.title"
@@ -23,4 +23,4 @@
 	</google-map>
 </div>
 
-<side-menu *ngIf="showMenu" class="side-menu"></side-menu>
+<side-menu *ngIf="showMenu" [filters]="filters" [selectedFilters]="selectedFilters" (filterChange)="filterChange($event)" class="side-menu"></side-menu>
