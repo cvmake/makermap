@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
         disableDoubleClickZoom: true,
         maxZoom: 20,
         minZoom: 8,
+        fullscreenControl: false
     }
     allMarkers: any = [];
     filteredMarkers: any = [];
