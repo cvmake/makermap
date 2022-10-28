@@ -42,12 +42,12 @@ export class AppComponent implements OnInit {
 
     @HostListener('window:resize', ['$event'])
     getScreenSize() {
-        // alert(window.devicePixelRatio);
-        // debugger;
-        // this.showTopMenu = window.innerWidth / window.devicePixelRatio < 300;
         this.smallScreen = window.innerWidth <= this.menuBreakpoint;
         this.showSideMenu = window.innerWidth >= this.menuBreakpoint + 1;
-        this.mapHeight = window.innerHeight - 34;
+        if (window.innerWidth <= this.menuBreakpoint)
+            this.mapHeight = window.innerHeight - 40;
+        else
+            this.mapHeight = window.innerHeight;
     }
 
     constructor(private httpClient: HttpClient) {
