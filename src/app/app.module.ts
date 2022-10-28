@@ -6,12 +6,14 @@ import { GoogleMapsModule } from "@angular/google-maps";
 import { HttpClientModule } from "@angular/common/http";
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         SideMenuComponent,
-        TopMenuComponent
+        TopMenuComponent,
+        DropdownComponent
     ],
     imports: [
         BrowserModule,

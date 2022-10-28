@@ -6,13 +6,9 @@
 		Data Filter
 	</div>
 
-	<div class="dropdown">
-		<button (click)="myFunction()" class="dropbtn">Cities: {{selectedFilters.City.selected}}</button>
-		<div id="myDropdown" class="dropdown-content">
-			<a (click)="selectCity('All')">All</a>
-			<a *ngFor="let city of filters.City.array" (click)="selectCity(city)">{{city}}</a>
-		</div>
-	</div>
+	<dropdown [label]="'Cities'" [data]="filters" [type]="'City'" (change)="change($event)" [selectedFilters]="selectedFilters"></dropdown>
+
+<!--	<dropdown [label]="'What'" [data]="filters" [type]="'What'" (change)="change($event)" [selectedFilters]="selectedFilters"></dropdown>-->
 
 	<div class="about">
 		<a href="https://cvmake.org/2022/10/maker-map-a-building-a-map-of-places-around-the-neighborhood/" target="_blank">About This Map</a>

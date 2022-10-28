@@ -1,0 +1,7 @@
+<div class="dropdown">
+	<button (click)="toggle()" class="dropbtn">{{label}}: {{selectedFilters[type].selected}}</button>
+	<div id="dropdown{{type}}" class="dropdown-content">
+		<a (click)="select('All')">All</a>
+		<a *ngFor="let item of data[type].array" (click)="select(item)">{{item}}</a>
+	</div>
+</div>

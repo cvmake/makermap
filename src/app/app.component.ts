@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
     @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
     @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
 
-    filterCategories = ['City'];
+    filterCategories = ['City','What'];
     filters = {};
     selectedFilters = {};
 
