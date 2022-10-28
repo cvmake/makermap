@@ -1,5 +1,5 @@
 <div class="container">
-	<top-menu (toggleMenuEvent)="toggleMenu()" class="top-menu"></top-menu>
+	<top-menu *ngIf="smallScreen" (toggleMenuEvent)="toggleMenu()" class="top-menu"></top-menu>
 	<google-map *ngIf="true"
 		width="100%"
 		height="{{mapHeight}}"
@@ -23,4 +23,4 @@
 	</google-map>
 </div>
 
-<side-menu *ngIf="showMenu" [filters]="filters" [selectedFilters]="selectedFilters" (filterChange)="filterChange($event)" class="side-menu"></side-menu>
+<side-menu *ngIf="showSideMenu" [smallScreen]="smallScreen" [filters]="filters" [selectedFilters]="selectedFilters" (filterChange)="filterChange($event)" class="side-menu"></side-menu>

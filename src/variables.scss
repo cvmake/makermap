@@ -1,0 +1,5 @@
+// This variable determines the width where the menu is shown instead
+// of being hidden in the drop down menu. Be sure to also
+// update this variable in app.component.ts
+$menuBreakpointMax: 1000px;
+$menuBreakpointMin: ($menuBreakpointMax + 1);

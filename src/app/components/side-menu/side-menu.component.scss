@@ -1,3 +1,5 @@
+@import '../../../variables.scss';
+
 .a {
     font-size: 10px;
 }
@@ -6,8 +8,19 @@
     padding-top: 1rem;
     padding-left: 1rem;
     width: 220px;
-    height: 200px;
     background-color: #eeeeee;
+}
+
+@media (max-width: $menuBreakpointMax) {
+    .menu {
+        height: 200px;
+    }
+}
+
+@media (min-width: $menuBreakpointMin) {
+    .menu {
+        height: 100%;
+    }
 }
 
 .section {
@@ -17,6 +30,12 @@
 .about {
     text-align: center;
     margin-top: 90px;
+}
+
+.title {
+    text-align: center;
+    font-size: 19px;
+    margin-bottom: 1rem;
 }
 
 /* Dropdown Button */

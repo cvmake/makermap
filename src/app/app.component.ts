@@ -15,9 +15,12 @@ export class AppComponent implements OnInit {
     filters = {};
     selectedFilters = {};
 
-    showMenu = false;
+    smallScreen = false;
+    showSideMenu = false;
     mapHeight = 500;
     companiesTsv = '';
+
+    menuBreakpoint = 1000;
 
     zoom = 12;
     center: google.maps.LatLngLiteral = {
@@ -39,6 +42,11 @@ export class AppComponent implements OnInit {
 
     @HostListener('window:resize', ['$event'])
     getScreenSize() {
+        // alert(window.devicePixelRatio);
+        // debugger;
+        // this.showTopMenu = window.innerWidth / window.devicePixelRatio < 300;
+        this.smallScreen = window.innerWidth <= this.menuBreakpoint;
+        this.showSideMenu = window.innerWidth >= this.menuBreakpoint + 1;
         this.mapHeight = window.innerHeight - 34;
     }
 
@@ -52,7 +60,7 @@ export class AppComponent implements OnInit {
     }
 
     toggleMenu() {
-        this.showMenu = !this.showMenu;
+        this.showSideMenu = !this.showSideMenu;
     }
 
     filterChange(event) {

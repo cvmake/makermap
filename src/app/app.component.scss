@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 .container {
     height: 100%;
     width: 100%;
@@ -5,14 +7,27 @@
 }
 
 .top-menu {
-    background-color: #eeeeee;
+    //background-color: #eeeeee;
+    background-color: #ff0000;
 }
 
-.side-menu {
-    position: absolute;
-    left: 2px;
-    top: 36px;
-    border: 1px solid #000000;
+@media (max-width: $menuBreakpointMax) {
+    .side-menu {
+        position: absolute;
+        left: 2px;
+        top: 36px;
+        border: 1px solid #999999;
+    }
+}
+
+@media (min-width: $menuBreakpointMin) {
+    .side-menu {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        border-right: 1px solid #999999;
+    }
 }
 
 .company {
