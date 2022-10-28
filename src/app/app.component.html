@@ -15,10 +15,11 @@
 			(mapClick)="openInfo(markerElem, marker.info)">
 		</map-marker>
 		<map-info-window>
-			<div class="company">{{infoContent['Company']}} ({{infoContent['What']}})</div>
-			<div class="pb-1">{{infoContent['City']}}</div>
-			<div class="">{{infoContent['Maker']}}</div>
-			<div><a href="{{infoContent['Website']}}" target="_blank">{{infoContent['Website']}}</a></div>
+			<div class="company">{{infoContent['CompanyName']}} </div>
+			<div *ngIf="infoContent['Do'] != ''">{{infoContent['Do']}} {{infoContent['What']}} for {{infoContent['Market(For)']}}</div>
+			<div *ngIf="infoContent['Makerconnection'] != ''" class="">{{infoContent['Makerconnection']}}</div>
+			<div *ngIf="infoContent['Notes'] != ''" class="">{{infoContent['Notes']}}</div>
+			<div *ngIf="infoContent['Website'] != ''" class="website"><a href="{{infoContent['Website']}}" target="_blank">{{infoContent['Website']}}</a></div>
 		</map-info-window>
 	</google-map>
 </div>

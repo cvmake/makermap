@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
     @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
     @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
 
-    filterCategories = ['City', 'Mode', 'What'];
+    filterCategories = ['City'];
     filters = {};
     selectedFilters = {};
 
@@ -153,8 +153,7 @@ export class AppComponent implements OnInit {
 
         //sanitize headings
         for (var c = 0; c < headingsRaw[0].length; c++) {
-            // let test = headings[0][c];
-            headings.push(headingsRaw[0][c].split(' ')[0]);
+            headings.push(headingsRaw[0][c].replace(/\s/g, ''));
         }
 
         //build json
