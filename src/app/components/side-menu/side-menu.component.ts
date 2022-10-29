@@ -7,7 +7,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class SideMenuComponent implements OnInit {
     @Input() filters: any = {};
-    @Input() selectedFilters: any = {};
     @Input() smallScreen: boolean = false;
     @Output() filterChange: any = new EventEmitter();
 

@@ -9,8 +9,9 @@ export class DropdownComponent implements OnInit {
     @Input() label: any = '';
     @Input() type: any = '';
     @Input() data: any = {};
-    @Input() selectedFilters: any = {};
     @Output() change: any = new EventEmitter();
+
+    selected = 'All';
 
     constructor() {
     }
@@ -32,6 +33,7 @@ export class DropdownComponent implements OnInit {
     }
 
     select(value) {
+        this.selected = value;
         this.change.emit({ type: this.type, value: value });
     }
 
