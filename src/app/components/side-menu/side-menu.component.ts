@@ -14,7 +14,8 @@ export class SideMenuComponent implements OnInit {
     }
 
     change(event) {
-        this.filterChange.emit(event);
+        if (event.hasOwnProperty('type'))
+            this.filterChange.emit(event);
     }
 
 }

@@ -1,0 +1,11 @@
+<div class="dropdown">
+	<button (click)="toggle($event)" class="dropbtn">{{label}}: {{selected}}</button>
+	<div id="dropdown{{type}}" class="dropdown-content">
+		<input type="checkbox" id="{{'all'+type}}" value="All" [checked]="allChecked" (click)="selectAll($event)">
+		<label for="{{'all'+type}}">All</label>
+		<ng-container *ngFor="let item of data[type].array">
+			<input type="checkbox" id="{{item}}" value="{{item}}" [checked]="data[type].map.get(item)" (click)="select($event)">
+			<label for="{{item}}">{{item}}</label>
+		</ng-container>
+	</div>
+</div>

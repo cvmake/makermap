@@ -7,13 +7,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { DropdownMultiComponent } from './components/dropdown-multi/dropdown-multi.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         SideMenuComponent,
         TopMenuComponent,
-        DropdownComponent
+        DropdownComponent,
+        DropdownMultiComponent
     ],
     imports: [
         BrowserModule,

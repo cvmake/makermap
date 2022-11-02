@@ -3,12 +3,12 @@
 	<div *ngIf="!smallScreen" class="title">CV Maker Map</div>
 
 	<div class="section">
-		Data Filter
+		Show
 	</div>
 
-	<dropdown [label]="'Cities'" [data]="filters" [type]="'City'" (change)="change($event)"></dropdown>
+	<dropdown-multi [label]="'Cities'" [data]="filters" [type]="'City'" (change)="change($event)"></dropdown-multi>
 
-<!--	<dropdown [label]="'What'" [data]="filters" [type]="'What'" (change)="change($event)" [selectedFilters]="selectedFilters"></dropdown>-->
+	<dropdown-multi [label]="'What'" [data]="filters" [type]="'What'" (change)="change($event)"></dropdown-multi>
 
 	<div class="about">
 		<a href="https://cvmake.org/2022/10/maker-map-a-building-a-map-of-places-around-the-neighborhood/" target="_blank">About This Map</a>

@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
     @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
     @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
 
-    private filterCategories = ['City','What'];
+    private filterCategories = ['City', 'What'];
     private selectedFilters = {};
     filters = {};
 
@@ -70,8 +70,12 @@ export class AppComponent implements OnInit {
 
     updateFilteredMarkers(item) {
         let keep = true;
-        if (this.selectedFilters['City'].selected != 'All' && this.selectedFilters['City'].selected != item.info.City)
-            keep = false;
+        for (const element in this.selectedFilters) {
+            if (item.info[element] === '')
+                keep = false;
+            if (this.selectedFilters[element].selected.get(item.info[element]) === 0)
+                keep = false;
+        }
         return keep;
     }
 
@@ -82,7 +86,7 @@ export class AppComponent implements OnInit {
                 map: new Map()
             };
             this.selectedFilters[this.filterCategories[index]] = {
-                selected: 'All'
+                selected: new Map()
             }
         }
     }
