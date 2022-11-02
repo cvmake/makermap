@@ -13,7 +13,7 @@
 
 @media (max-width: $menuBreakpointMax) {
     .menu {
-        height: 200px;
+        height: 220px;
     }
 }
 
@@ -29,7 +29,8 @@
 
 .about {
     text-align: center;
-    margin-top: 90px;
+    padding-top: 1rem;
+    font-size: small;
 }
 
 .title {

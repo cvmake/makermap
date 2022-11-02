@@ -37,6 +37,13 @@ export class DropdownMultiComponent implements OnInit, AfterContentChecked {
     ngAfterContentChecked() {
         if (this.data[this.type].array.length > 0 && this.selectedInit === false) {
             this.selectedInit = true;
+            for (let i = 0; i < this.data[this.type].array.length; i++) {
+                if(this.data[this.type].map.get(this.data[this.type].array[i]) === 0){
+                    this.allChecked = false;
+                    this.selected = this.getSelected();
+                    i = this.data[this.type].array.length;
+                }
+            }
         }
     }
 
