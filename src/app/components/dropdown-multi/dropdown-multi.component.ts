@@ -1,4 +1,4 @@
-import { AfterContentChecked, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterContentChecked, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'dropdown-multi',
@@ -19,16 +19,30 @@ export class DropdownMultiComponent implements OnInit, AfterContentChecked {
     }
 
     ngOnInit(): void {
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
+    }
+
+    @HostListener('document:click', ['$event'])
+    click(event) {
+        let dropdowns = document.getElementsByClassName("dropdown-content");
+
+        //click on a different instance of this component - close this dropdown
+        if (event.target.name === this.type) {
+            for (let i = 0; i < dropdowns.length; i++) {
+                let openDropdown = dropdowns[i];
+                if (openDropdown.id.substring(8) != this.type) {
                     if (openDropdown.classList.contains('show')) {
                         openDropdown.classList.remove('show');
                     }
+                }
+            }
+        }
+
+        //click outside the dropdown - close this dropdown
+        if (!event.target.matches('.dropbtn')) {
+            for (let i = 0; i < dropdowns.length; i++) {
+                let openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
                 }
             }
         }
@@ -38,7 +52,7 @@ export class DropdownMultiComponent implements OnInit, AfterContentChecked {
         if (this.data[this.type].array.length > 0 && this.selectedInit === false) {
             this.selectedInit = true;
             for (let i = 0; i < this.data[this.type].array.length; i++) {
-                if(this.data[this.type].map.get(this.data[this.type].array[i]) === 0){
+                if (this.data[this.type].map.get(this.data[this.type].array[i]) === 0) {
                     this.allChecked = false;
                     this.selected = this.getSelected();
                     i = this.data[this.type].array.length;
