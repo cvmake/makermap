@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
 
     smallScreen = false;
     showSideMenu = false;
+    mapWidth = 500;
     mapHeight = 500;
     companiesTsv = '';
 
@@ -44,10 +45,13 @@ export class AppComponent implements OnInit {
     getScreenSize() {
         this.smallScreen = window.innerWidth <= this.menuBreakpoint;
         this.showSideMenu = window.innerWidth >= this.menuBreakpoint + 1;
-        if (window.innerWidth <= this.menuBreakpoint)
+        if (window.innerWidth <= this.menuBreakpoint) {
             this.mapHeight = window.innerHeight - 40;
-        else
+            this.mapWidth = window.innerWidth;
+        } else {
             this.mapHeight = window.innerHeight;
+            this.mapWidth = window.innerWidth - 237;
+        }
     }
 
     constructor(private httpClient: HttpClient) {

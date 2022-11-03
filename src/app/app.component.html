@@ -1,7 +1,8 @@
 <div class="container">
 	<top-menu *ngIf="smallScreen" (toggleMenuEvent)="toggleMenu()" class="top-menu"></top-menu>
 	<google-map *ngIf="true"
-		width="100%"
+		class="map"
+		width="{{mapWidth}}"
 		height="{{mapHeight}}"
 		[options]="options"
 		[center]="center"

@@ -5,10 +5,9 @@
 }
 
 .menu {
-    padding-top: 1rem;
     padding-left: 1rem;
     width: 220px;
-    background-color: #eeeeee;
+    background-color: $menuBGColor;
 }
 
 @media (max-width: $menuBreakpointMax) {
@@ -17,13 +16,8 @@
     }
 }
 
-@media (min-width: $menuBreakpointMin) {
-    .menu {
-        height: 100%;
-    }
-}
-
 .section {
+    padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
 
@@ -36,5 +30,6 @@
 .title {
     text-align: center;
     font-size: 19px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
 }
