@@ -59,6 +59,8 @@ export class DropdownMultiComponent implements OnInit, AfterContentChecked {
                 }
             }
         }
+        if (this.label === '')
+            this.label = this.type;
     }
 
     select(event) {

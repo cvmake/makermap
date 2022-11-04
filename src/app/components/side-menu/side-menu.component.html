@@ -6,9 +6,9 @@
 		Filters
 	</div>
 
-	<dropdown-multi [label]="'Cities'" [data]="filters" [type]="'City'" (change)="change($event)"></dropdown-multi>
+	<dropdown-multi [data]="filters" [type]="'City'" (change)="change($event)" [label]="'Cities'"></dropdown-multi>
 
-	<dropdown-multi [label]="'What'" [data]="filters" [type]="'What'" (change)="change($event)"></dropdown-multi>
+	<dropdown-multi [data]="filters" [type]="'What'" (change)="change($event)"></dropdown-multi>
 
 	<div class="about">
 		<a href="https://cvmake.org/2022/10/maker-map-a-building-a-map-of-places-around-the-neighborhood/" target="_blank">About This Map</a>
