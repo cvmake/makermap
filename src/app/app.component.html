@@ -21,6 +21,7 @@
 			<div *ngIf="infoContent['Makerconnection'] != ''" class="">{{infoContent['Makerconnection']}}</div>
 			<div *ngIf="infoContent['Notes'] != ''" class="">{{infoContent['Notes']}}</div>
 			<div *ngIf="infoContent['Website'] != ''" class="website"><a href="{{infoContent['Website']}}" target="_blank">{{infoContent['Website']}}</a></div>
+			<div class="">{{infoContent['Address']}} {{infoContent['City']}} {{infoContent['State']}}, {{infoContent['Zip']}}</div>
 		</map-info-window>
 	</google-map>
 </div>
